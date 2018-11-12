@@ -1,5 +1,14 @@
 # demoj
 
+to test restful service
+
+to test swagger-ui
+
+to test some basic spring security
+
+to test yml application properties
+
+
 check api
 
 curl -X GET http://localhost:8080
