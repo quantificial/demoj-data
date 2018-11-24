@@ -48,7 +48,7 @@ public class BookController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/v1/book/{bookid}", produces = MediaType.APPLICATION_JSON_VALUE)
     public BookDto get(
-            @ApiParam(required = true, name = "bookid", value = "書本ID") @PathVariable Integer bookid) {
+            @ApiParam(required = true, name = "bookid", value = "書本ID", example="1") @PathVariable Integer bookid) {
     	
         //Book book = bookRepository.findOne(bookid);
     	Book book = bookRepository.findByBookid(bookid);
@@ -64,7 +64,7 @@ public class BookController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/v1/book/object/{bookid}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Book getBook(
-            @ApiParam(required = true, name = "bookid", value = "書本ID") @PathVariable Integer bookid) {
+            @ApiParam(required = true, name = "bookid", value = "書本ID", example="1") @PathVariable Integer bookid) {
     	
         //Book book = bookRepository.findOne(bookid);
     	Book book = bookRepository.findByBookid(bookid);
