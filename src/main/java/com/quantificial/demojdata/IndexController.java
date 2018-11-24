@@ -16,7 +16,7 @@ public class IndexController {
 	
     @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public String index() {
+    public String index() {	
         
     	return JSONObject.quote("Hello World");
     }
