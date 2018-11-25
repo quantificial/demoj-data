@@ -18,19 +18,19 @@ public class BookController {
     @Autowired
     private BookRepository bookRepository;
 
-    @ApiOperation(value = "取得書本", notes = "列出所有書本")
+    @ApiOperation(value = "get all book", notes = "list out all the books")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/v1/book", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<Book> getAll() {
         return bookRepository.findAll();
     }
 
-    @ApiOperation(value = "新增書本", notes = "新增書本的內容")
-    @ApiResponses(value = {@ApiResponse(code = 201, message = "存檔成功")})
+    @ApiOperation(value = "add books", notes = "add books... notes...")
+    @ApiResponses(value = {@ApiResponse(code = 201, message = "save successfully")})
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/v1/book", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public BookDto create(
-            @ApiParam(required = true, value = "書本內容") @RequestBody BookDto bookDto) {
+            @ApiParam(required = true, value = "book information dto") @RequestBody BookDto bookDto) {
         Book book = new Book();
         
         System.out.println("book id:" + bookDto.getBookid());
@@ -43,12 +43,12 @@ public class BookController {
         return bookDto;
     }
 
-    @ApiOperation(value = "取得書本內容", notes = "取得書本內容")
-    @ApiResponses(value = {@ApiResponse(code = 200, message = "書本資訊")})
+    @ApiOperation(value = "get book information", notes = "get book information")
+    @ApiResponses(value = {@ApiResponse(code = 200, message = "show book information")})
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/v1/book/{bookid}", produces = MediaType.APPLICATION_JSON_VALUE)
     public BookDto get(
-            @ApiParam(required = true, name = "bookid", value = "書本ID", example="1") @PathVariable Integer bookid) {
+            @ApiParam(required = true, name = "bookid", value = "book id", example="1") @PathVariable Integer bookid) {
     	
         //Book book = bookRepository.findOne(bookid);
     	Book book = bookRepository.findByBookid(bookid);
@@ -59,12 +59,12 @@ public class BookController {
         return bookDto;
     }
     
-    @ApiOperation(value = "取得書本內容", notes = "取得書本內容")
-    @ApiResponses(value = {@ApiResponse(code = 200, message = "書本資訊")})
+    @ApiOperation(value = "get book entity", notes = "get book entity... notes...")
+    @ApiResponses(value = {@ApiResponse(code = 200, message = "show book information")})
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/v1/book/object/{bookid}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Book getBook(
-            @ApiParam(required = true, name = "bookid", value = "書本ID", example="1") @PathVariable Integer bookid) {
+            @ApiParam(required = true, name = "bookid", value = "book id", example="1") @PathVariable Integer bookid) {
     	
         //Book book = bookRepository.findOne(bookid);
     	Book book = bookRepository.findByBookid(bookid);

@@ -5,13 +5,14 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+// data transfer object
 @Data
-@ApiModel(description = "書本資料")
+@ApiModel(description = "basic book information")
 public class BookDto {
-    @ApiModelProperty(value = "序號", required = true)
+    @ApiModelProperty(value = "book series", required = true)
     private Integer bookid;
-    @ApiModelProperty(value = "書名", required = true)
+    @ApiModelProperty(value = "book name", required = true)
     private String name;
-    @ApiModelProperty(value = "作者", required = true)
+    @ApiModelProperty(value = "author", required = true)
     private String author;
 }
