@@ -17,4 +17,4 @@ curl -X GET http://localhost:8080
 
 curl -X GET 'http://localhost:8080/books?page=0&size=2&sort=bookid,desc'
 
-curl -X GET http://localhost:8080/books/12
+curl -X GET http://localhost:8080/books/12"# demo-simple-restful" 
